@@ -1,0 +1,7 @@
+{ "_id" : { "$oid" : "53217b62f33ab349012ed581"}, "name" : "Board game", price: 72, vendor: { name: "Mark", email: "mark@example.com", code: { base: 456, opt: 236} } }
+{ "_id" : { "$oid" : "53217b84f33ab349012ed582"}, "name" : "Meat", price: 12, vendor: { name: "Martha", email: "martha@example.com", code: { base: 123, opt: 37} } }
+{ "_id" : { "$oid" : "53217bb8f33ab349012ed583"}, "name" : "Milk", price: 5, vendor: { name: "Kevin", email: "kevin@example.com", code: { base: 8, opt: 236} } }
+{ "_id" : { "$oid" : "53217bd9f33ab349012ed584"}, "name" : "Sugar", price: 10, vendor: { name: "Ramsey", email: "ramsey@example.com", code: { base: 123, opt: 123} } }
+{ "_id" : { "$oid" : "53217c06f33ab349012ed585"}, "name" : "Medicine", price: 50, vendor: { name: "Susan", email: "susan@example.com", code: { base: 78, opt: 2236} } }
+{ "_id" : { "$oid" : "53217c55f33ab349012ed586"}, "name" : "Computer", price: 1299, vendor: { name: "Amalia", email: "amalia@example.com", code: { base: 1123, opt: 236} } }
+{ "_id" : { "$oid" : "53217fb0f33ab349012ed587"}, "name" : "Shirt", price: 270, vendor: { name: "Joe", email: "joe@example.com", code: { base: 123, opt: 236} } }

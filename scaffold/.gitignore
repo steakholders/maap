@@ -1,0 +1,7 @@
+node_modules
+app/bower_components
+reports
+.local
+*~
+*.log
+*.bak

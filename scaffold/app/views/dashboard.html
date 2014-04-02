@@ -1,0 +1,25 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+
+			<div class="page-header">
+				<h1>Dashboard <small>List Collections</small></h1>
+			</div>
+
+			<div class="input-group">
+				<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+				<input type="text" class="form-control input-sm" placeholder="Search.."  ng-model="search.label" />
+			</div>
+
+			<div class="list-group help">
+			  <a href="/#/collections/{{collection.id}}" class="list-group-item" ng-repeat="collection in collections | filter:search">
+			    <h4 class="list-group-item-heading">
+			    	<i class="glyphicon glyphicon-hand-right"></i>
+			    	{{collection.label}}
+			    </h4>
+			  </a>
+			</div>
+			
+		</div>
+	</div>
+</div>

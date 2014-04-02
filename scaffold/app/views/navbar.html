@@ -1,0 +1,44 @@
+<header class="navbar navbar-inverse navbar-fixed-top" role="navigation" ng-controller="NavBarCtrl">
+	<div class="container-fluid">
+
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mobile-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">MaaP</a>
+		</div>
+
+		<nav class="navbar-collapse collapse" id="mobile-collapse">
+			<ul class="nav navbar-nav navbar-left">
+				<li ng-show="isAdmin" ng-class="{ active: isActive('/users')}" ng-click="refresh('/users')">
+					<a href="#/users"><i class="glyphicon glyphicon-user glyphicon-white"></i> Users</a>
+				</li>
+				<li ng-show="isLogged" ng-repeat="collection in collections | limitTo: navBarCollections" ng-class="{ active: isActive('/collections/{{collection.id}}')}" ng-click="refresh(collection.id)">
+					<a href="#/collections/{{collection.id}}">{{collection.label}}</a>
+				</li>
+				<li ng-show="isLogged" ng-show="collections.length > navBarCollections">
+					<a href="#/dashboard">more...</a>
+				</li>
+			</ul>
+
+			<ul class="nav navbar-nav navbar-right">
+				<li ng-hide="isLogged"><a href="#/login">Login</a></li>
+				<li ng-hide="isLogged || !showSignup"><a href="#/signup">Sign up</a></li>
+
+				<li class="dropdown" ng-show="isLogged">
+					<a ng-href="#" eat-click class="dropdown-toggle" data-toggle="dropdown">
+						{{profile.email}} <b class="caret"></b>
+					</a>
+					<ul class="dropdown-menu">
+						<li><a href="#/profile"><i class="glyphicon glyphicon-wrench"></i> Profile</a></li>
+						<li class="divider"></li>
+						<li><a href="#/logout"><i class="glyphicon glyphicon-log-out"></i> Logout</a></li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+
+	</div>
+</header>

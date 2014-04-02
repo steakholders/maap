@@ -1,0 +1,23 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+
+			<div class="page-header">
+				<h1>Edit Document <small>{{document.id}}</small></h1>
+			</div>
+
+			<form class="" role="form">
+				<div class="form-group" ng-repeat="row in document.fields">
+					<div ng-show="row.name != '_id'">
+						<label for="{{row.label}}">{{row.label}}</label>
+						<input type="text" class="form-control" id="{{row.label}}" placeholder="{{row.data}}" ng-model='editDocumentData[row.name]' autofillfix />
+					</div>
+				</div>
+
+				<a class="btn btn-default" href="#/collections/{{collection.id}}/{{document.id}}">Cancel</a>
+				<button type="button" class="btn btn-primary" ng-click="edit_document()">Save changes</button>
+			</form>
+			
+		</div>
+	</div>
+</div>

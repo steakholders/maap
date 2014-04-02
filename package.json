@@ -1,0 +1,66 @@
+{
+  "name": "maap",
+  "version": "1.0.1",
+  "description": "Maap is a Node.js module for generating administration style interfaces",
+  "license": "MIT",
+  "contributors": [
+    {
+      "name": "Luca De Franceschi"
+    },
+    {
+      "name": "Gianluca Donato"
+    },
+    {
+      "name": "Giacomo Fornari"
+    },
+    {
+      "name": "Serena Girardi"
+    },
+    {
+      "name": "Federico Poli"
+    },
+    {
+      "name": "Enrico Rotundo"
+    },
+    {
+      "name": "Nicolò Tresoldi"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:steakholders/maap.git"
+  },
+  "main": "./index.js",
+  "bin": {
+    "maap": "./lib/installer.js"
+  },
+  "dependencies": {
+    "express": "~3.4",
+    "passport": "~0.2.0",
+    "passport-local": "~0.1.6",
+    "crypto": "~0.0.3",
+    "mongoose": "~3.8.8",
+    "passport-local-mongoose": "~0.2.6",
+    "nodemailer": "~0.6.1",
+    "ncp": "~0.5.0",
+    "sweet.js": "~0.4.2",
+    "commander": "~2.1.0",
+    "connect-mongo": "~0.4.0",
+    "async": "~0.2.10"
+  },
+  "devDependencies": {
+    "jshint": "~2.4.4",
+    "plato": "~1.0.1",
+    "complexity-report": "~1.0.2",
+    "chai": "~1.9.1",
+    "supertest": "~0.10.0",
+    "xunit-file": "0.0.5",
+    "mocha": "~1.18.2",
+    "should": "~3.2.0-beta1",
+    "istanbul": "~0.2.6",
+    "mocha-istanbul": "~0.2.0"
+  },
+  "engines": {
+    "node": "0.10.x"
+  }
+}

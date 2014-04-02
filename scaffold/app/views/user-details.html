@@ -1,0 +1,30 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+
+			<div class="page-header">
+				<h1>User Details <small>{{user.email}}</small></h1>
+			</div>
+
+			<table class="table table-bordered">
+				<tr>
+					<td><strong>Email:</strong></td>
+					<td>{{user.email}}</td>
+				</tr>
+				<tr>
+					<td><strong>Level:</strong></td>
+					<td>{{user.role}}</td>
+				</tr>
+			</table>
+
+			<a href="#/users/" class="btn btn-default">Back</a>
+			<button role="button" class="btn btn-danger" ng-click="deleteUser(user)" ng-hide="isSuperAdmin || user.email == profile.email">
+				<i class="glyphicon glyphicon-trash"></i> Delete User
+			</button>
+			<a href="#/users/{{user._id}}/edit" class="btn btn-primary" ng-hide="isSuperAdmin || user.email == profile.email">
+				<i class="glyphicon glyphicon-pencil"></i> Edit User
+			</a>
+
+		</div>
+	</div>
+</div>

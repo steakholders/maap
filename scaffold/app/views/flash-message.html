@@ -1,0 +1,25 @@
+<div class="container">
+	<div ng-controller="FlashMessageCtrl" ng-show="flash_message" class="alert alert-{{flash_message.type}}">
+		<button class="close" ng-click="flushMessage()">&times;</button>
+		<h4 ng-show="flash_message.code || flash_message.title">
+			<span ng-show="debug && flash_message.code">[{{flash_message.code}}]</span>
+			<span ng-show="flash_message.title">{{flash_message.title}}</span>
+		</h4>
+
+		<div ng-show="!flash_message.isArray">
+			<p>{{flash_message.message}}</p>
+			<pre ng-show="debug && flash_message.details">{{flash_message.details}}</pre>
+		</div>
+
+		<div ng-show="flash_message.isArray" ng-repeat="submessage in flash_message.message track by $index">
+			<h5>
+				<strong ng-show="debug && submessage.code">[{{submessage.code}}]</strong>
+				<strong>{{submessage.title}}</strong>
+			</h5>
+			<p>{{submessage.message}}</p>
+			<pre ng-show="debug && submessage.details">{{submessage.details}}</pre>
+		</div>
+
+		<small ng-show="flash_message.type === 'danger'">If you think this error should not happen, please <a href="#/report">report it</a>.</small>
+	</div>
+</div>

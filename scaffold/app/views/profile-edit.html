@@ -1,0 +1,31 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+
+			<div class="page-header">
+				<h1>Change password <small>{{profile.email}}</small></h1>
+			</div>
+
+			<form class="" role="form">
+				<div class="form-group">
+					<label for="new-password">New Password</label>
+					<input type="password" class="form-control" id="new-password" placeholder="Enter new password" ng-model='newPassword' autofillfix />
+				</div>
+
+				<div class="form-group">
+					<label for="confirm-password">Confirm Password</label>
+					<input type="password" class="form-control" id="confirm-password" placeholder="Enter new password" ng-model='confirmPassword' autofillfix />
+				</div>
+
+				<div class="form-group">
+					<label for="old-password">Old Password</label>
+					<input type="password" class="form-control" id="old-password" placeholder="Enter old password" ng-model='oldPassword' autofillfix />
+				</div>
+
+				<a class="btn btn-default" href="#/profile">Cancel</a>
+				<button type="button" class="btn btn-primary" ng-click="update_password()">Save changes</button>
+			</form>
+			
+		</div>
+	</div>
+</div>

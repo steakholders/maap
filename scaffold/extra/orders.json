@@ -1,0 +1,7 @@
+{ "_id" : { "$oid" : "53217b62f33ab349012ed881"}, customer : { "$oid" : "533406891734c2fe51040231" }, product : { "$oid" : "53217b62f33ab349012ed581" }, quantity: 3 }
+{ "_id" : { "$oid" : "53217b84f33ab349012ed882"}, customer : { "$oid" : "533406891734c2fe51040251" }, product : { "$oid" : "53217b84f33ab349012ed582" }, quantity: 6 }
+{ "_id" : { "$oid" : "53217bb8f33ab349012ed883"}, customer : { "$oid" : "533406891734c2fe51040247" }, product : { "$oid" : "53217bb8f33ab349012ed583" }, quantity: 1 }
+{ "_id" : { "$oid" : "53217bd9f33ab349012ed884"}, customer : { "$oid" : "533406891734c2fe5104024a" }, product : { "$oid" : "53217bd9f33ab349012ed584" }, quantity: 4 }
+{ "_id" : { "$oid" : "53217c06f33ab349012ed885"}, customer : { "$oid" : "533406891734c2fe5104022f" }, product : { "$oid" : "53217c06f33ab349012ed585" }, quantity: 4 }
+{ "_id" : { "$oid" : "53217c55f33ab349012ed886"}, customer : { "$oid" : "533406891734c2fe51040227" }, product : { "$oid" : "53217c55f33ab349012ed586" }, quantity: 2 }
+{ "_id" : { "$oid" : "53217fb0f33ab349012ed887"}, customer : { "$oid" : "533406891734c2fe51040258" }, product : { "$oid" : "53217fb0f33ab349012ed587" }, quantity: 3 }

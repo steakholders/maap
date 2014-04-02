@@ -1,0 +1,9 @@
+node_modules
+reports
+lib-cov
+.local
+.cache
+*~
+*.log
+*.bak
+.git

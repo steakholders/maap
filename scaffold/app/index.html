@@ -1,0 +1,89 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/whhg.css" />
+  </head>
+  <body ng-app="maap">
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <div class="wrap-content">
+      <div ng-include="'views/navbar.html'"></div>
+      <div ng-include="'views/flash-message.html'" class="alert_messages"></div>
+      <div class="main-content">
+        <div ng-view></div>
+      </div>
+    </div>
+
+    <div class="footer" ng-include="'views/footer.html'"></div>
+    <!--[if lt IE 9]>
+    <script src="bower_components/es5-shim/es5-shim.js"></script>
+    <script src="bower_components/json3/lib/json3.min.js"></script>
+    <![endif]-->
+
+    <!-- bower:js -->
+    <script src="bower_components/jquery/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <!-- endbower -->
+
+    <script src="scripts/app.js"></script>
+    <script src="scripts/config.js"></script>
+    <script src="scripts/run.js"></script>
+
+    <!-- Services -->
+    <script src="scripts/services/UserService.js"></script>
+    <script src="scripts/services/UserListService.js"></script>
+    <script src="scripts/services/ProfileService.js"></script>
+    <script src="scripts/services/CollectionService.js"></script>
+    <script src="scripts/services/DocumentService.js"></script>
+    <script src="scripts/services/CollectionListService.js"></script>
+    <script src="scripts/services/RegisterService.js"></script>
+    <script src="scripts/services/ForgotPasswordService.js"></script>
+    
+    <!-- Utils -->
+    <script src="scripts/utils/Directives.js"></script>
+    <script src="scripts/utils/FlashMessage.js"></script>
+    <script src="scripts/utils/ErrorHandler.js"></script>
+    <script src="scripts/utils/Updater.js"></script>
+    
+    <!-- Vendor -->
+    <script src="vendor/twbsPagination.min.js"></script>
+    <script src="vendor/bootstrap-joyride.js"></script>
+    
+    <!-- Controllers -->
+    <script src="scripts/controllers/FlashMessageCtrl.js"></script>
+    <script src="scripts/controllers/DashboardCtrl.js"></script>
+    <script src="scripts/controllers/DocumentCtrl.js"></script>
+    <script src="scripts/controllers/CollectionCtrl.js"></script>
+    <script src="scripts/controllers/UserListCtrl.js"></script>
+    <script src="scripts/controllers/UserCreateCtrl.js"></script>
+    <script src="scripts/controllers/UserDetailsCtrl.js"></script>
+    <script src="scripts/controllers/ProfileCtrl.js"></script>
+    <script src="scripts/controllers/ProfileEditCtrl.js"></script>
+    <script src="scripts/controllers/LoginCtrl.js"></script>
+    <script src="scripts/controllers/LogoutCtrl.js"></script>
+    <script src="scripts/controllers/RegisterCtrl.js"></script>
+    <script src="scripts/controllers/ForgotRequestCtrl.js"></script>
+    <script src="scripts/controllers/ForgotResetCtrl.js"></script>
+    <script src="scripts/controllers/NavBarCtrl.js"></script>
+    <script src="scripts/controllers/NotFoundCtrl.js"></script>
+    <script src="scripts/controllers/HelpCtrl.js"></script>
+
+</body>
+</html>

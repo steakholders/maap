@@ -1,0 +1,29 @@
+<div class="container">
+	<div ng-show="isAdmin || isSuperAdmin">
+		<div class="page-header">
+			<h1>Create User <small></small></h1>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+				<form id="create-user-form">
+					<div class="form-group">
+						<label class="pull-left">Email</label>
+						<input type="email" class="form-control input-lg" placeholder="newuser@email.com" ng-model="userFormData.email" required autofillfix />
+
+						<label class="pull-left">Password</label>
+						<input type="password" class="form-control input-lg" placeholder="Password" ng-model="userFormData.password" autofillfix />
+
+						<label class="pull-left">Role</label><br>
+						<input id="level-1" type="radio" ng-model="userFormData.level" value="1" />
+						<label for="level-1"> User</label>
+						<input id="level-2" type="radio" ng-model="userFormData.level" value="2" />
+						<label for="level-2"> Admin</label>
+					</div>
+					<a href="#/users/" class="btn btn-default">Back</a>
+					<button type="submit" class="btn btn-success" ng-click="createUser()">Add User</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

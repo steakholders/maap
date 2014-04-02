@@ -1,0 +1,31 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+
+			<div class="page-header">
+				<h1>Edit User <small>{{user.email}}</small></h1>
+			</div>
+
+			<form class="well" role="form">
+				<div class="form-group">
+					<label>Current Level:</label>
+					<span class="current-level"><strong> {{user.role}}</strong></span>
+				</div>
+
+				<div class="form-group">
+					<label for="user-level">Change Level:</label>
+					<input id="level-1" type="radio" ng-model="userLevelForm" value="1" />
+					<label for="level-1"> User</label>
+					<input id="level-2" type="radio" ng-model="userLevelForm" value="2" />
+					<label for="level-2"> Admin</label>
+					</ul>
+				</div>
+
+				<a href="#/users/{{user._id}}" class="btn btn-default">Cancel</a>
+				<button type="submit" class="btn btn-primary" ng-click="editUser()">Change Level</button>
+
+			</form>
+
+		</div>
+	</div>
+</div>

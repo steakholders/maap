@@ -1,0 +1,61 @@
+#!/bin/bash
+#
+# A hook script to verify what is about to be committed.
+# Called by "git commit" with no arguments. The hook should
+# exit with non-zero status after issuing an appropriate message if
+# it wants to stop the commit.
+
+# === Per abilitare questo hook ===
+# Per abilitare questo hook, in modo che venga eseguito in automatico prima di
+# ogni commit, linkare questo script in .git/hooks/pre-commit con il comando
+# ln -s /{percorso assoluto completo del repository}/extra/pre-commit .git/hooks/pre-commit
+# (eseguendolo dalla cartella principale del repository)
+
+# Trova automaticamente la cartella principale del repository
+REPO_DIR=$(pwd)
+while [ "$REPO_DIR" != "/" ] && [ "$REPO_DIR" != "." ]; do
+	if [ -f "$REPO_DIR/extra/lib.sh" ]; then
+		# Includi lo script
+		source "$REPO_DIR/extra/lib.sh"
+		break
+	else
+		# Sali di un livello
+		REPO_DIR=$(dirname "$REPO_DIR")
+	fi
+done
+
+if [ "$REPO_DIR" == "/" ] || [ "$REPO_DIR" == "." ]; then
+	# Non ha trovato la cartella giusta
+	echo "/!\ Non ho trovato la cartella principale del repository" 1>&2
+	exit 1
+fi
+
+# Ottieni il nome della branch
+function current_branch() {
+	git branch | grep \* | cut -f2 -d' '
+}
+
+# Controlla il codice
+function make_test() {
+	log "info" "Inizio il controllo pre-commit"
+	
+	cd "$REPO_DIR"
+	make jshint && cd scaffold && make jshint && cd ..
+	return_code="$?"
+	
+	# Se c'è stato un errore
+	if [ "$return_code" != "0" ]; then
+		log "error" "Pre-commit fallito, correggere e rifare il commit."
+		exit "$return_code"
+	fi
+	
+	if [ "$(current_branch)" == "stable" ]; then
+		log "error" "Non è permesso fare commit sul ramo 'stable'. Ci pensa Jenkins."
+		exit "1"
+	fi
+
+	log "success" "Controllo pre-commit OK"
+}
+
+make_test
+
