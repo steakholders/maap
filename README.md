@@ -1,12 +1,15 @@
-MaaP
+MaaP - MongoDB as an Admin Platform
 ====
 
-Lo scopo di MaaP è quello di fornire un framework per generare interfacce web di amministrazione dei dati di business basato su stack **Node.js** e **MongoDB**. L'obiettivo è quello di semplificare il processo di implementazione di tali interfacce che lo sviluppatore, appoggiandosi alla produttività del framework MaaP, potrà generare in maniera semplice e veloce ottenendo quindi un considerevole risparmio di tempo e di sforzo. Il fruitore finale delle pagine generate sarà infine l'esperto di business che potrà visualizzare, gestire e modificare le varie entità e dati residenti in MongoDB. MaaP è l'acronimo di **MongoDB as an admin Platform**.
+MaaP it's an admin platform for generating administration style interfaces, based on **Node.js** and **MongoDB** stack.          
+Its purpose is to make it simple for developers to implement interfaces for manage business data with simplicity, providing a DSL that allows you to define the content of your webpages in minutes.
 
-Utilizzo rapido
+
+Usage
 ---
 
-Di seguito vengono presentate le istruzioni per un rapido utilizzo di MaaP:
+MaaP is an npm package.
+Setting up MaaP new Project:
 
 ```
 npm install -g maap
@@ -17,35 +20,37 @@ vim config.js
 npm start
 ```
 
-Per maggiori dettagli riferirsi alla sezione [*Primo utilizzo*](https://github.com/steakholders/maap-dev/wiki/Primo-utilizzo) della wiki.
+For more details see [*First use*](https://github.com/steakholders/maap-dev/wiki/Primo-utilizzo) from wiki.
 
-File di configurazione
+Configuration Files 
 ---
-
-All'interno dell'applicazione generata è possibile modificare i seguenti file di configurazione:
+You can edit these configuration files:
 
 ```
-config.js
-app/scripts/config.js
-collections/*.dsl
+config.js                    # Back-end configuration
+app/scripts/config.js        # Front-end configuration
+collections/*.dsl            # DSL configuration File 
 ```
-Il primo si riferisce alla **configurazione del back-end**, il secondo alla **configurazione del front-end** e il terzo ai **file DSL** da editare. Per maggiori informazioni riferirsi alla sezione [*Configurazione nuovo progetto*](https://github.com/steakholders/maap-dev/wiki/Configurazione-nuovo-progetto) della wiki.
+For more information see [*New Project configuration*](https://github.com/steakholders/maap-dev/wiki/Configurazione-nuovo-progetto) from wiki.
 
 
-Popolamento del database di prova
+Populate test database
 ---
+For populate the database with test collections, move to `./extra/` directory.
+JSON files contain test data. 
 
-Per popolare il database con le collections di prova posizionarsi all'interno della cartella `./extra/` dell'applicazione generata. Al suo interno saranno presenti diversi files JSON con i dati di prova. `populate-users-db.sh` e `populate-data-db.sh` sono degli script che popolano il database con dei dati di esempio, per utilizzarli su un database locale eseguire:
+`populate-users-db.sh` and `populate-data-db.sh` are scripts that populate the database with example data, for using them on local database do:
 
 `./populate-users-db.sh --host localhost:27017 --db users`
 `./populate-data-db.sh --host localhost:27017 --db data`
 
-Per maggiori dettagli riferirsi alla sezione [*Primo utilizzo*](https://github.com/steakholders/maap-dev/wiki/Primo-utilizzo) della wiki.
+For more details see [*Firse usage*](https://github.com/steakholders/maap-dev/wiki/Primo-utilizzo) from wiki.
 
-Configurazione di una DSL
+
+
+DSL Configuration
 ---
-
-Di seguito viene riportato il codice base di configurazione di un file DSL:
+Here are a few common configurations for an DSL file:
 
 
 ```  javascript
@@ -85,4 +90,4 @@ collection(
 
 ```
 
-Per maggiori dettagli riferirsi alla sezione [*Configurazione di un file DSL*](https://github.com/steakholders/maap-dev/wiki/Configurazione-di-un-file-DSL) e [*Esempi di configurazione di un DSL*](https://github.com/steakholders/maap-dev/wiki/Esempi-di-configurazione-DSL) della wiki.
+For see more details [*DSL File Configuration*](https://github.com/steakholders/maap-dev/wiki/Configurazione-di-un-file-DSL) and [*DSL Configuration File Example*](https://github.com/steakholders/maap-dev/wiki/Esempi-di-configurazione-DSL) from wiki.
