@@ -2,7 +2,7 @@ MaaP - MongoDB as an Admin Platform
 ====
 
 MaaP it's an admin platform for generating administration style interfaces, based on **Node.js** and **MongoDB** stack.          
-Its purpose is to make it simple for developers to implement interfaces for manage business data with simplicity, providing a DSL that allows you to define the content of your webpages in minutes.
+Its purpose is to make it simple for developers to implement interfaces for manage business data with ease, providing a DSL that allows you to define the content of your webpages in minutes.
 
 
 Usage
@@ -39,18 +39,18 @@ Populate test database
 For populate the database with test collections, move to `./extra/` directory.
 JSON files contain test data. 
 
-`populate-users-db.sh` and `populate-data-db.sh` are scripts that populate the database with example data, for using them on local database do:
+`populate-users-db.sh` and `populate-data-db.sh` are scripts that populate the database with example data, To use them on a local database, do:
 
 `./populate-users-db.sh --host localhost:27017 --db users`
 `./populate-data-db.sh --host localhost:27017 --db data`
 
-For more details see [*Firse usage*](https://github.com/steakholders/maap-dev/wiki/Primo-utilizzo) from wiki.
+For more details see [*First usage*](https://github.com/steakholders/maap-dev/wiki/Primo-utilizzo) from wiki.
 
 
 
 DSL Configuration
 ---
-Here are a few common configurations for an DSL file:
+Here are a few common configurations for a DSL file:
 
 
 ```  javascript
