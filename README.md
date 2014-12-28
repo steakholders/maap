@@ -20,7 +20,7 @@ vim config.js
 npm start
 ```
 
-For more details see [*First use*](https://github.com/steakholders/maap-dev/wiki/Primo-utilizzo) from wiki.
+For more details see [*First usage*](https://github.com/steakholders/maap/wiki/First-Usage) from wiki.
 
 Configuration Files 
 ---
@@ -31,7 +31,7 @@ config.js                    # Back-end configuration
 app/scripts/config.js        # Front-end configuration
 collections/*.dsl            # DSL configuration File 
 ```
-For more information see [*New Project configuration*](https://github.com/steakholders/maap-dev/wiki/Configurazione-nuovo-progetto) from wiki.
+For more information see [*New Project configuration*](https://github.com/steakholders/maap/wiki/New-project-configuration) from wiki.
 
 
 Populate test database
@@ -44,7 +44,7 @@ JSON files contain test data.
 `./populate-users-db.sh --host localhost:27017 --db users`
 `./populate-data-db.sh --host localhost:27017 --db data`
 
-For more details see [*First usage*](https://github.com/steakholders/maap-dev/wiki/Primo-utilizzo) from wiki.
+For more details see [*First usage*](https://github.com/steakholders/maap/wiki/First-Usage) from wiki.
 
 
 
@@ -90,4 +90,4 @@ collection(
 
 ```
 
-For see more details [*DSL File Configuration*](https://github.com/steakholders/maap-dev/wiki/Configurazione-di-un-file-DSL) and [*DSL Configuration File Example*](https://github.com/steakholders/maap-dev/wiki/Esempi-di-configurazione-DSL) from wiki.
+For see more details [*DSL File Configuration*](https://github.com/steakholders/maap/wiki/DSL-File-Configuration) and [*DSL Configuration File Example*](https://github.com/steakholders/maap/wiki/DSL-Configuration-File-Example) from wiki.
