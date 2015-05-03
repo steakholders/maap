@@ -1,19 +1,63 @@
 MaaP - MongoDB as an Admin Platform
 ====
 
-MaaP it's an admin platform for generating administration style interfaces, based on **Node.js** and **MongoDB** stack.          
-Its purpose is to make it simple for developers to implement interfaces for manage business data with ease, providing a DSL that allows you to define the content of your webpages in minutes.
+MaaP is an admin platform for generating administration style interfaces usefull for your business. The purpose is to provide a very simple and fast framework which allows developers to build-up a MongoDB data management application in just few minutes. How can it be so simple? 
 
+Table of contents
+---
+* Requirements;
+* Get started;
+* Configure your project;
+* Create a DSL configuration;
+* Admin your application;
+* Deploy your application;
+* Support;
+* Demo;
 
-Usage
+Requirements
 ---
 
-MaaP is an npm package.
-Setting up MaaP new Project:
+In order to create a new MaaP application you need at least:
+
+* **Node.js**, version `>= 0.10.0.1`;
+* **NPM* (*node package manager*), version `>= 1.3.0.2`, for back-end. Further dependencies will be resolved during the installation process;
+* **Bower** for front-end dependencies which will be installed during the installation process;
+* A *MongoDB* database for your data;
+* A *MongoDB* database for your users;
+
+Supported browser:
+
+* **Chrome**, version `>= 30.0.x`;
+* **Firefox**, version `>= 24.x`.
+
+Get started
+---
+
+You need to download MaaP as a global package from npm. For other informations you can refer to MaaP's npm [page](https://www.npmjs.com/package/maap). You will probably need root permission in order to perform this operation. Open a terminal and type:
 
 ```
-npm install -g maap
-maap create project
+$ npm install -g maap
+```
+Nice, now it's time to create a new MaaP application in a dedicated directory:
+
+```
+$ maap install <ProjectName>
+```
+
+where *<ProjectName>* will be the name of your application. Once you submit this command a process will start to make the scaffolding of a new project and it will place all the files you need inside a new directory with the same name you typed.
+
+```
+$ cd <ProjectName>
+```
+
+The following step is to install all the **dependencies** you need in order to start your application. So, as you are probably familiar, you need to install *npm* and *bower* packages:
+
+```
+$ npm install
+```
+```
+$ bower install
+```  
 cd project
 npm install
 vim config.js
