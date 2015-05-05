@@ -7,9 +7,10 @@ Table of contents
 ---
 * [Requirements](#requirements);
 * [Get started](#get-started);
+* [Project structure](#project-structure);
 * [Configure your project](#configure);
 * Create a DSL configuration;
-* Admin your application;
+* [Admin your application](#admin);
 * Deploy your application;
 * Support;
 * Demo;
@@ -100,7 +101,32 @@ All the back-end scripts and API are provided by the package itself, so you will
 <a href="configure"></a>Configure your project
 ---
 
-In order to connect your application with your personal Mongo database and configure other parameters you need to edit the `config.js` file in the root directory of your project. 
+In order to connect your application with your personal Mongo database and configure other parameters you need to edit the `config.js` file in the root directory of your project. Here you have to set two main environment:
+
+* **Development**;
+* **Production**.
+
+Now let's take a look at all the parameters you have to configure:
+
+* `env` [String]: the name of the environment;
+* `webServer` [Json]:
+	- `port` [Integer]: the server port;
+	- `static` [String]: the location at which the server is serving static files.
+* `userDb`: this is the database where you will store the users of your application;
+	- `url` [String]: this is the resource identifier of your user Mongo database;
+* `dataDb` [Json]: this is the database where you store all the data you want to manage;
+	- `url` [String]: this is the resource identifier of your data Mongo database;
+* `smtp` [Json]: this is the mail service for user's password recovering system;
+	- `service` [String]: this is the name of the service which is responsible of sending emails;
+	- `auth` [Json]: here you have to provide `user` of the service, represented by the email, and the `password`.
+* `resetPassword` [Json]: this object describes the configuration of password recovery system;
+	- `tokenLife` [Integer]: represents the amount of milliseconds at the end of which the recovery page expires;
+	- `link` [String]: represents the page where you will show the password recovery system;
+* `collectionPath` [String]: this is the path where you want to place your DSL configuration files;
+* `allowSignup` [Boolean]: indicates wheter is possible or not to perform a signup in your application.
+* `superAdmins` [Json Array]: it's an array of defaults super admins which can access to your application. This is really usefull if you still don't have any users in your database;
+	- `email` [String]: represents the email address of the superadmin;
+	- `password` [String]: represents the password of the superadmin;
 
 Configuration Files 
 ---
