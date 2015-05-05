@@ -19,10 +19,10 @@ Table of contents
 * [Project structure](#project-structure);
 * [Configure your project](#configure);
 * [Create a DSL configuration file](#dsl);
-	- [Collection configuration](#dsl:collection);
-	- [Index configuration](#dsl:index);
-	- [Show configuration](#dsl:show);
-	- [Row configuration](#dsl:row);
+	- [Collection configuration](#dsl-collection);
+	- [Index configuration](#dsl-index);
+	- [Show configuration](#dsl-show);
+	- [Row configuration](#dsl-row);
 * [Admin your application](#admin);
 * [Deploy your application](#deploy);
 * [Support](#support);
@@ -197,12 +197,12 @@ If during this process some errors occur (i.e. wrong file interpretation, code e
 
 Each expression of DSL code accepts a list of parameters in Javascript style: `parameterKey: parameterValue`. Some parameters are **required** while other are **optional** and take eventually a default value.
 
-### <a name="dsl:collection"></a>Collection configuration
+### <a name="dsl-collection"></a>Collection configuration
 
-### <a name="dsl:index"></a>Index configuration
+### <a name="dsl-index"></a>Index configuration
 
-### <a name="dsl:column"></a>Column configuration
+### <a name="dsl-column"></a>Column configuration
 
-### <a name="dsl:show"></a>Show configuration
+### <a name="dsl-show"></a>Show configuration
 
-### <a name="dsl:row"></a>Row configuration
+### <a name="dsl-row"></a>Row configuration
