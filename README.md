@@ -1,7 +1,16 @@
 MaaP - MongoDB as an Admin Platform
 ====
 
-MaaP is an admin platform for generating administration style interfaces usefull for your business. The purpose is to provide a very simple and fast framework which allows developers to build-up a MongoDB data management application in just few minutes. How can it be so simple? 
+MaaP is an admin platform for generating administration style interfaces usefull for your business. The purpose is to provide a very simple and fast framework which allows developers to build-up a MongoDB data management application in just few minutes. 
+
+It works with the MongoDB familiar concept of **collections**, which is a set of **documents**. For each collection you want to show and mananage with MaaP you will have two kind of views of your data:
+
+* **Index Page**, which represents a list of all your document in the collection. By the DSL configuration you can specify what attrbutes you want to display and how many documents to show per page;
+* **Show Page**, which represents a single document of your collection. Such as the *Index Page* you can configure a custom view of your document.
+
+In addition to simple view of your data you can also **delete** or **edit** your documents directly in your browser in a really fast and easy way. 
+
+All this customization can be performed in few minutes: you just need to write a DSL file and you're done. I guess that making such a kind of application by yourself would take days and days of work and effort. With MaaP you can do and mantain it in less than one hour. Did I get your curiosity?
 
 Table of contents
 ---
@@ -9,7 +18,7 @@ Table of contents
 * [Get started](#get-started);
 * [Project structure](#project-structure);
 * [Configure your project](#configure);
-* [Create a DSL configuration](#dsl);
+* [Create a DSL configuration file](#dsl);
 * [Admin your application](#admin);
 * [Deploy your application](#deploy);
 * [Support](#support);
@@ -135,72 +144,45 @@ Now your back-end is completely configured and you have complete control on your
 * `showSignup` [Boolean]: choose whether to show or hide the signup button;
 * `reportLink` [String]: this is the address where the users of your application will report any bugs.
 
-Configuration Files 
+<a name="dsl"></a>Create a DSL configuration file
 ---
-You can edit these configuration files:
+
+Inside `./collection` folder you can find two examples of DSL files. As previously described, it's possible to manually specify in which folder take your own files by changing the application's configuration editing the config.js file. The DSL file can be modified with your favorite text editor. 
+
+The basic configuration has to comply with the following syntax:
 
 ```
-config.js                    # Back-end configuration
-app/scripts/config.js        # Front-end configuration
-collections/*.dsl            # DSL configuration File 
-```
-For more information see [*New Project configuration*](https://github.com/steakholders/maap/wiki/New-project-configuration) from wiki.
-
-
-Populate test database
----
-For populate the database with test collections, move to `./extra/` directory.
-JSON files contain test data. 
-
-`populate-users-db.sh` and `populate-data-db.sh` are scripts that populate the database with example data, To use them on a local database, do:
-
-`./populate-users-db.sh --host localhost:27017 --db users`
-`./populate-data-db.sh --host localhost:27017 --db data`
-
-For more details see [*First usage*](https://github.com/steakholders/maap/wiki/First-Usage) from wiki.
-
-
-
-DSL Configuration
----
-Here are a few common configurations for a DSL file:
-
-
-```  javascript
 collection(
-	name: "userscollection", 
-	label: "Users", 
-	id: "myId", 
-	weight: 1 
+    name: "NomeCollection",
+    label: "CollectionLabel",
+    id: "CollectionId",
+    weight: CollectionWeight
 ) {
-	index( 
-		perpage: 50, 
-		populate: "father", 
-		sortby: "username", 
-		order: "asc", 
-		query: { country: "Italy"}
-	) {
-		column(
-			name: "username", 
-			label: "Username", 
-			sortable: true, 
-			selectable: true, 
-			transformation: function(val) { return "The Great " + val; }
-		)
-		// ...
-	}
-	show(
-		populate: "father"
-	) {
-		row(
-			name: "username", 
-			label: "Username", 
-			transformation: function(val) { return "The Great " + val; }
-		)
-		// ...
-	}
+    index(
+        perpage: DocumentsPerPage,
+        populate: AttributePopulate,
+        sortby: "DefaultSort",
+        order: "DefaultSortOrder",
+        query: CollectionQuery
+    ) {
+        column(
+            name: "AttributeName",
+            label: "ColumnLabel",
+            sortable: IndexSortable,
+            selectable: IndexSelectable,
+            transformation: TransformationFunction
+        )
+        // ...
+    }
+    show(
+        populate: AttributePopulate
+    ) {
+        row(
+            name: "AttributeName",
+            label: "RowLabel",
+            transformation : TransformationFunction
+        )
+        // ...
+    }
 } 
-
 ```
-
-For see more details [*DSL File Configuration*](https://github.com/steakholders/maap/wiki/DSL-File-Configuration) and [*DSL Configuration File Example*](https://github.com/steakholders/maap/wiki/DSL-Configuration-File-Example) from wiki.
