@@ -14,7 +14,7 @@ Table of contents
 * Support;
 * Demo;
 
-Requirements {#requirements}
+<a name="requirements"></a>Requirements {#requirements}
 ---
 
 In order to create a new MaaP application you need at least:
