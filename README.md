@@ -19,7 +19,7 @@ Table of contents
 * [Project structure](#project-structure);
 * [Configure your project](#configure);
 * [Create a DSL configuration file](#dsl);
-	- [Collection configuration](#dsl:collection);
+	- [Collection configuration](#dsl-collection);
 	- [Index configuration](#dsl:index);
 	- [Show configuration](#dsl:show);
 	- [Row configuration](#dsl:row);
