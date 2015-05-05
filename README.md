@@ -205,4 +205,3 @@ Each expression of DSL code accepts a list of parameters in Javascript style: `p
 
 ### <a name="dsl-show"></a>Show configuration
 
-### <a name="dsl-row"></a>Row configuration
