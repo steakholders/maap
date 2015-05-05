@@ -9,11 +9,11 @@ Table of contents
 * [Get started](#get-started);
 * [Project structure](#project-structure);
 * [Configure your project](#configure);
-* Create a DSL configuration;
+* [Create a DSL configuration](#dsl);
 * [Admin your application](#admin);
-* Deploy your application;
-* Support;
-* Demo;
+* [Deploy your application](#deploy);
+* [Support](#support);
+* [Demo](#demo);
 
 <a name="requirements"></a>Requirements
 ---
@@ -123,10 +123,17 @@ Now let's take a look at all the parameters you have to configure:
 	- `tokenLife` [Integer]: represents the amount of milliseconds at the end of which the recovery page expires;
 	- `link` [String]: represents the page where you will show the password recovery system;
 * `collectionPath` [String]: this is the path where you want to place your DSL configuration files;
-* `allowSignup` [Boolean]: indicates wheter is possible or not to perform a signup in your application.
-* `superAdmins` [Json Array]: it's an array of defaults super admins which can access to your application. This is really usefull if you still don't have any users in your database;
+* `allowSignup` [Boolean]: indicates whether is possible or not to perform a signup in your application.
+* `superAdmins` [Json Array]: it's an array of defaults super admins which can access to your application. This is really usefull if you still don't have any users in your database. Each object must be composed of:
 	- `email` [String]: represents the email address of the superadmin;
 	- `password` [String]: represents the password of the superadmin;
+
+Now your back-end is completely configured and you have complete control on your application. We need to configure the front-end now. Open the file `./app/scripts/config.js`. In this file an Angular module is defined and it expose (with *constants*) all the front-end configuration parameters you need:
+
+* `debug` [Boolean]: choose whether to show details in errors;
+* `navBarCollections` [Integer]: choose how many collections to show in the navigation header bar;
+* `showSignup` [Boolean]: choose whether to show or hide the signup button;
+* `reportLink` [String]: this is the address where the users of your application will report any bugs.
 
 Configuration Files 
 ---
