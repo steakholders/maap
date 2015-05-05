@@ -5,8 +5,8 @@ MaaP is an admin platform for generating administration style interfaces usefull
 
 Table of contents
 ---
-* Requirements;
-* Get started;
+* [Requirements](#requirements);
+* [Get started](#get-started);
 * Configure your project;
 * Create a DSL configuration;
 * Admin your application;
@@ -14,7 +14,7 @@ Table of contents
 * Support;
 * Demo;
 
-Requirements
+Requirements {#requirements}
 ---
 
 In order to create a new MaaP application you need at least:
@@ -30,7 +30,7 @@ Supported browser:
 * **Chrome**, version `>= 30.0.x`;
 * **Firefox**, version `>= 24.x`.
 
-Get started
+Get started {#get-started}
 ---
 
 You need to download MaaP as a global package from npm. For other informations you can refer to MaaP's npm [page](https://www.npmjs.com/package/maap). You will probably need root permission in order to perform this operation. Open a terminal and type:

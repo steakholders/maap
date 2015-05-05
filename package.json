@@ -2,7 +2,7 @@
   "name": "maap",
   "version": "1.0.3",
   "description": "Maap is a Node.js module for generating administration style interfaces",
-  "license": "MIT",
+  "license": "GPL v2.0",
   "contributors": [
     {
       "name": "Luca De Franceschi"
