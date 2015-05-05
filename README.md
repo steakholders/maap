@@ -19,6 +19,10 @@ Table of contents
 * [Project structure](#project-structure);
 * [Configure your project](#configure);
 * [Create a DSL configuration file](#dsl);
+	- [Collection configuration](#dsl:collection);
+	- [Index configuration](#dsl:index);
+	- [Show configuration](#dsl:show);
+	- [Row configuration](#dsl:row);
 * [Admin your application](#admin);
 * [Deploy your application](#deploy);
 * [Support](#support);
@@ -153,24 +157,24 @@ The basic configuration has to comply with the following syntax:
 
 ```
 collection(
-    name: "NomeCollection",
-    label: "CollectionLabel",
-    id: "CollectionId",
-    weight: CollectionWeight
+    name   : "NomeCollection",
+    label  : "CollectionLabel",
+    id     : "CollectionId",
+    weight : CollectionWeight
 ) {
     index(
-        perpage: DocumentsPerPage,
-        populate: AttributePopulate,
-        sortby: "DefaultSort",
-        order: "DefaultSortOrder",
-        query: CollectionQuery
+        perpage  : DocumentsPerPage,
+        populate : AttributePopulate,
+        sortby   : "DefaultSort",
+        order    : "DefaultSortOrder",
+        query    : CollectionQuery
     ) {
         column(
-            name: "AttributeName",
-            label: "ColumnLabel",
-            sortable: IndexSortable,
-            selectable: IndexSelectable,
-            transformation: TransformationFunction
+            name           : "AttributeName",
+            label          : "ColumnLabel",
+            sortable       : IndexSortable,
+            selectable     : IndexSelectable,
+            transformation : TransformationFunction
         )
         // ...
     }
@@ -178,11 +182,27 @@ collection(
         populate: AttributePopulate
     ) {
         row(
-            name: "AttributeName",
-            label: "RowLabel",
+            name           : "AttributeName",
+            label          : "RowLabel",
             transformation : TransformationFunction
         )
         // ...
     }
 } 
 ```
+
+When the server is started, the back-end reads the directory and sequentially get all the files with extension `.dsl` inside it. The DSL interpreter parses these files and interfaces with the API of MaaP in order to generate all the classes and Schemas required to display the given collection.
+
+If during this process some errors occur (i.e. wrong file interpretation, code execution) they will be reported in the application, so you can easily debug and fix. Inside the file, in addition to pure DSL syntax, you can write all the usefull javascript you want: you can declare functions or variables, just be careful with the errors.
+
+Each expression of DSL code accepts a list of parameters in Javascript style: `parameterKey: parameterValue`. Some parameters are **required** while other are **optional** and take eventually a default value.
+
+### <a name="dsl:collection"></a>Collection configuration
+
+### <a name="dsl:index"></a>Index configuration
+
+### <a name="dsl:column"></a>Column configuration
+
+### <a name="dsl:show"></a>Show configuration
+
+### <a name="dsl:row"></a>Row configuration
