@@ -20,7 +20,7 @@ Table of contents
 In order to create a new MaaP application you need at least:
 
 * **Node.js**, version `>= 0.10.0.1`;
-* **NPM* (*node package manager*), version `>= 1.3.0.2`, for back-end. Further dependencies will be resolved during the installation process;
+* *npm* (*node package manager*), version `>= 1.3.0.2`, for back-end. Further dependencies will be resolved during the installation process;
 * **Bower** for front-end dependencies which will be installed during the installation process;
 * A *MongoDB* database for your data;
 * A *MongoDB* database for your users;
@@ -66,7 +66,41 @@ $ npm install
 $ bower install
 ```
 
-For more details see [*First usage*](https://github.com/steakholders/maap/wiki/First-Usage) from wiki.
+Your application is ready and you can start it by typing:
+
+```
+$ npm start
+```
+
+Then open a browser instance and connect to `localhost:3000`. You should see the login page of your application. If everything is correct now let's take a look at how the application scaffolding look:
+
+<a href="project"></a>Project structure
+---
+
+MaaP is a framework based on two main technologies:
+
+* [Node.js](https://nodejs.org/) for the *back-end*;
+* [Angular.js](https://angularjs.org/) for the *front-end*.
+
+All the back-end scripts and API are provided by the package itself, so you will not find in your application. You can always take a look at the directory `./lib` of this repository if you want to know something more about how MaaP works. On the other hand you've the complete control on the front-end side of your application, so you can edit HTML, CSS and Angular scripts however you so desire, in order to customize your application. If you have no time for this don't worry: we provided a nice and professional template based on [Bootstrap](http://getbootstrap.com/). From the root of your project you can find the following files and directories:
+
+* `./app`: here you can find the static files served by the back-end, in particular:
+	- `./views`, where resides the html template files;
+	- `./scripts`, where resided all the Angular scripts;
+	- `./styles`, where resides all the stylesheets.
+* `./collections`: here you will place your **DSL** configuration files;
+* `./extra`: a collection of utilities scripts (for instance population scripts);
+* `./test`: a collection of front-end unit test with *karma*;
+* `package.json`: here you'll describe your application and define all back-end dependencies;
+* `bower.json`: here you'll manage all the front-end dependencies;
+* `config.js`: a very important file where you will configure your application.
+* `server.js`: the script which starts the application.
+
+
+<a href="configure"></a>Configure your project
+---
+
+In order to connect your application with your personal Mongo database and configure other parameters you need to edit the `config.js` file in the root directory of your project. 
 
 Configuration Files 
 ---
