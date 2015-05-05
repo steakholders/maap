@@ -157,38 +157,41 @@ The basic configuration has to comply with the following syntax:
 
 ```
 collection(
-    name   : "NomeCollection",
-    label  : "CollectionLabel",
-    id     : "CollectionId",
-    weight : CollectionWeight
+    name   : "collectionName",
+    label  : "collectionLabel",
+    id     : "collectionId",
+    weight : collectionWeight
 ) {
     index(
-        perpage  : DocumentsPerPage,
-        populate : AttributePopulate,
-        sortby   : "DefaultSort",
-        order    : "DefaultSortOrder",
-        query    : CollectionQuery
+        perpage  : documentsPerPage,
+        populate : populateAttribute,
+        sortby   : "defaultSort",
+        order    : "defaultSortOrder",
+        query    : {}
     ) {
         column(
-            name           : "AttributeName",
-            label          : "ColumnLabel",
-            sortable       : IndexSortable,
-            selectable     : IndexSelectable,
-            transformation : TransformationFunction
+            name           : "attributeName",
+            label          : "columnLabel",
+            sortable       : indexSortable,
+            selectable     : indexSelectable,
+            transformation : function() { ... }
         )
-        // ...
+        /** More columns ... */
     }
     show(
         populate: AttributePopulate
     ) {
         row(
-            name           : "AttributeName",
-            label          : "RowLabel",
-            transformation : TransformationFunction
+            name           : "attributeName",
+            label          : "rowLabel",
+            transformation : function() { ... }
         )
-        // ...
+        /** More rows ... */    
     }
 } 
+
+/** More collections */
+
 ```
 
 When the server is started, the back-end reads the directory and sequentially get all the files with extension `.dsl` inside it. The DSL interpreter parses these files and interfaces with the API of MaaP in order to generate all the classes and Schemas required to display the given collection.
@@ -199,9 +202,45 @@ Each expression of DSL code accepts a list of parameters in Javascript style: `p
 
 ### <a name="dsl-collection"></a>Collection configuration
 
+This is a reference to a specific collection in your MongoDB database. The Index Page and Show Page will result by this configuration.
+
+* `name` [String] (required): this parameter is the name of the collection referred to your MongoDB database;
+* `label` [String] (optional): this parameter is a placeholder of the name of your collection and it will appear in the view;
+* `id` [String] (optional): this parameter is the identification of the collection's URI. By defaults it takes the same value of `name` parameter. Use it if you want two or more configurations of the same collection and there's a conflict with `name` parameter;
+* `weight` [Integer] (optional): this parameter define the order of this collection in the navigation bar menu of the application. The more is the weight related to other collections the more the collection will be placed by first in the navigation bar (left to right order). 
+
 ### <a name="dsl-index"></a>Index configuration
+
+This expression show how the Index Page must be configured. A precise structure (with table) of the page is the result of this configuration:
+
+* `perpage` [Integer] (optional): this parameter represents the number of documents that will be displayed for each page. If the total number of documents is greater thean this parameter, the Index Page will be *paginated*. The default value is 50;
+* `populate` [String] (optional): this parameter represents the external attribute on which execute the MongoDB [populate](http://mongoosejs.com/docs/populate.html) function;
+* `sortby` [String] (optional): this parameter represents the parameter on which execute the default order in case of no column has been specified with the parameter `sortable: true`;
+* `order` ["asc" | "desc"]: this parameter describe the type of order for the `sortby` parameter:
+	- "asc" (default) means that the order will be ascending;
+	- "desc" means that the order will be descending;
+* `query` [Json] (optional): this parameter accept an object which contains a [query](http://mongoosejs.com/docs/queries.html) you can do into your collection;
 
 ### <a name="dsl-column"></a>Column configuration
 
+Every index page can contain one or more columns, which represents a MongoDB document attribute. If you don't specify any columns by default MaaP will show all the attributes of the document. The view is graphically displayed with a table, where the rows are the documents and the columns the attributes of that document:
+
+* `name` [String] (required): this parameter represents the attribute's name of the document in the collection;
+* `label` [String] (optional): this parameter is a placeholder of the name of the attribute of the document. It will be the value of the header of the table. If not specified it is automatically set to the value of the `name` parameter;;
+* `sortable` [Boolean] (optional): this parameter specify whether or not the index-page can be sorted by this attribute. If not specified is set to false;
+* `selectable` [Boolean] (optional): this parameter specify whether the cell value is a link to the related Show Page of the document. If not specified is set to false;
+* `tranformation` [Function] (optional): this parameter is a function you can apply on the current attribute of the document for a transformation of the value;
+
 ### <a name="dsl-show"></a>Show configuration
 
+This expression show how the Show Page must be configured. A precise structure and displaying of the page is the result of this configuration. A Show Page is related to a single document and the structure is still a table, with one column and multiple rows.
+
+* `populate` [String] (optional): this parameter is the external attribute on which execute the MongoDB [populate](http://mongoosejs.com/docs/populate.html) function.
+
+### <a name="dsl-row"></a>Row configuration
+
+Each row of the Show Page represents a MongoDB document attribute.
+
+* `name` [String] (required): this parameter represents the name of the attribute reference of the document in the collection;
+* `label` [String] (optional): this parameter is the header's name of the show-page's table row. If not specified it is automatically set to the value of the `name` parameter;
+* `transformation` [Function] (required): this parameter is a function you can apply on the current. attribute of the document for a transformation of the value
